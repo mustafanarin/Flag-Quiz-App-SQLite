@@ -82,7 +82,7 @@ class _QuizEkraniState extends State<QuizEkrani> {
 
   void dogruOlcer(String buttonIsim){
 
-    if(buttonIsim == sorular[soruSayisi].bayrak_ad){
+    if(buttonIsim == dogruBayrak.bayrak_ad){
       dogruSayisi++;
     }else{
       yanlisSayisi++;
@@ -108,33 +108,33 @@ class _QuizEkraniState extends State<QuizEkrani> {
               ],
             ),
 
-            soruSayisi != 5 ? Text("${soruSayisi+1}. Soru") :
+            soruSayisi != 5 ? Text("${soruSayisi+1}. Soru") : Text("5. Soru"),
 
             Image.asset("images/$bayrakResimAdi"),
 
             ElevatedButton(
                 onPressed: () {
-                  soruSayacKontrol();
                   dogruOlcer(buttonA);
+                  soruSayacKontrol();
                 },
                 child: Text(buttonA)),
 
             ElevatedButton(
                 onPressed: () {
-                  soruSayacKontrol();
                   dogruOlcer(buttonB);
+                  soruSayacKontrol();
                 },
                 child: Text(buttonB)),
             ElevatedButton(
                 onPressed: () {
-                  soruSayacKontrol();
                   dogruOlcer(buttonC);
+                  soruSayacKontrol();
                 },
                 child: Text(buttonC)),
             ElevatedButton(
                 onPressed: () {
-                  soruSayacKontrol();
                   dogruOlcer(buttonD);
+                  soruSayacKontrol();
                 },
                 child: Text(buttonD)),
 

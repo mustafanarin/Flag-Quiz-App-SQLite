@@ -6,7 +6,7 @@ class BayraklarDAO{
   Future<List<Bayraklar>> dogruSecenek5Bayrak() async{
     var db = await VeritabaniYardimcisi.veritabaniErisim();
 
-    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM bayraklar ORDER BY RANDOM LIMIT 2");
+    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM bayraklar ORDER BY RANDOM() LIMIT 5");
 
     return List.generate(maps.length, (i) {
 
@@ -19,7 +19,7 @@ class BayraklarDAO{
   Future<List<Bayraklar>> yanlisSecenek3Bayrak(int bayrak_id) async{
     var db = await VeritabaniYardimcisi.veritabaniErisim();
 
-    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM bayraklar WHERE bayrak_id !=$bayrak_id ORDER BY RANDOM LIMIT 3");
+    List<Map<String, dynamic>> maps = await db.rawQuery("SELECT * FROM bayraklar WHERE bayrak_id !=$bayrak_id ORDER BY RANDOM() LIMIT 3");
 
     return List.generate(maps.length, (i) {
 

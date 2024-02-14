@@ -26,7 +26,7 @@ class _SonucEkraniState extends State<SonucEkrani> {
           children: [
             Text("${widget.dogruSayisi} DOĞRU ${tumSorular - widget.dogruSayisi} YANLIŞ"),
 
-            Text("${widget.dogruSayisi * basariYuzdesi} Başarı"),
+            Text("%${widget.dogruSayisi * basariYuzdesi} Başarı"),
 
             ElevatedButton(
                 onPressed: () {
