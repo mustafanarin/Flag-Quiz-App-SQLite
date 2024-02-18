@@ -5,6 +5,8 @@ import 'package:flag_quiz_app/BayraklarDAO.dart';
 import 'package:flag_quiz_app/SonucEkrani.dart';
 import 'package:flutter/material.dart';
 
+import 'FlutterColor.dart';
+
 class QuizEkrani extends StatefulWidget {
   const QuizEkrani({super.key});
 
@@ -92,51 +94,119 @@ class _QuizEkraniState extends State<QuizEkrani> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: FlutterColor("#ede0d4"),
       appBar: AppBar(
-        title: Text("Quiz Ekranı"),
-        backgroundColor: Colors.blue,
+        title: Text("Quiz"),
+        backgroundColor: FlutterColor("#d4a373"),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Doğru: $dogruSayisi"),
-                Text("Yanlış: $yanlisSayisi")
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top:16.0,bottom: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text("Doğru: $dogruSayisi",style: TextStyle(fontSize: 22),),
+                  Text("Yanlış: $yanlisSayisi",style: TextStyle(fontSize: 22),)
+                ],
+              ),
             ),
 
-            soruSayisi != 5 ? Text("${soruSayisi+1}. Soru") : Text("5. Soru"),
+            soruSayisi != 5 ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("${soruSayisi+1}. Soru",style: TextStyle(fontSize: 30),),
+            ) :
+            Text("5. Soru",style: TextStyle(fontSize: 30),),
 
-            Image.asset("images/$bayrakResimAdi"),
+            Padding(
+              padding: const EdgeInsets.only(top: 16.0,bottom: 8),
+              child: Image.asset("images/$bayrakResimAdi"),
+            ),
 
-            ElevatedButton(
-                onPressed: () {
-                  dogruOlcer(buttonA);
-                  soruSayacKontrol();
-                },
-                child: Text(buttonA)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 50,
+                width: 210,
+                child: ElevatedButton(
+                    onPressed: () {
+                      dogruOlcer(buttonA);
+                      soruSayacKontrol();
+                    },
+                    child: Text(buttonA,style: TextStyle(color: Colors.black,fontSize: 25),),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: FlutterColor("#ddb892"),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(0))
+                      )
+                    ),
+                ),
+              ),
+            ),
 
-            ElevatedButton(
-                onPressed: () {
-                  dogruOlcer(buttonB);
-                  soruSayacKontrol();
-                },
-                child: Text(buttonB)),
-            ElevatedButton(
-                onPressed: () {
-                  dogruOlcer(buttonC);
-                  soruSayacKontrol();
-                },
-                child: Text(buttonC)),
-            ElevatedButton(
-                onPressed: () {
-                  dogruOlcer(buttonD);
-                  soruSayacKontrol();
-                },
-                child: Text(buttonD)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 50,
+                width: 210,
+                child: ElevatedButton(
+                  onPressed: () {
+                    dogruOlcer(buttonB);
+                    soruSayacKontrol();
+                  },
+                  child: Text(buttonB,style: TextStyle(color: Colors.black,fontSize: 25),),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: FlutterColor("#ddb892"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0))
+                      )
+                  ),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 50,
+                width: 210,
+                child: ElevatedButton(
+                  onPressed: () {
+                    dogruOlcer(buttonC);
+                    soruSayacKontrol();
+                  },
+                  child: Text(buttonC,style: TextStyle(color: Colors.black,fontSize: 25),),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: FlutterColor("#ddb892"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0))
+                      )
+                  ),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 50,
+                width: 210,
+                child: ElevatedButton(
+                  onPressed: () {
+                    dogruOlcer(buttonD);
+                    soruSayacKontrol();
+                  },
+                  child: Text(buttonD,style: TextStyle(color: Colors.black,fontSize: 25),),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: FlutterColor("#ddb892"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0))
+                      )
+                  ),
+                ),
+              ),
+            ),
 
           ],
         ),
@@ -144,3 +214,4 @@ class _QuizEkraniState extends State<QuizEkrani> {
     );
   }
 }
+

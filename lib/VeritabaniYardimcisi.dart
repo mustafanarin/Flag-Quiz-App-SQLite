@@ -13,13 +13,13 @@ class VeritabaniYardimcisi{
 
     if(await databaseExists(veritabaniYolu)){
 
-      print("Veritabanı daha önceden kopyalanmış kopyalanmış.");
+      print("Veritabanı daha önceden kopyalanmış.");
     }else{
-
+      // Assetten veritabanının alınması
       ByteData data = await rootBundle.load("veritabani/$veritabaniAdi");
-
+      // Veritabanının kopyalama için byte dönüşümü
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes,data.lengthInBytes);
-
+      // Veritabanı kopyalanması
       await File(veritabaniYolu).writeAsBytes(bytes,flush: true);
     }
 
